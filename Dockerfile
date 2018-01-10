@@ -9,11 +9,16 @@ ENV WORDPRESS_VERSION=${WORDPRESS_VERSION:-4.9.1}
 ENV WORDPRESS_TGZ_URL=https://cn.wordpress.org/wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz
 
 RUN set -xe \
+#	&& sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list \
+	&& apt-get update && apt-get install -y --no-install-recommends --no-install-suggests unzip && rm -r /var/lib/apt/lists/* \
+	\
 	&& mkdir -p /app \
 	&& cd /root \
 	&& curl -fSL ${WORDPRESS_TGZ_URL} -o wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz \
 	&& tar -xzvf wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz -C /app --strip-components=1 \
-	&& rm -f wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz
+	&& rm -f wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz \
+	&& rm -rf /app/wp-content/plugins/akismet \
+	&& rm -f /app/wp-content/plugins/hello.php
 
 ADD nginx.conf /usr/local/etc/nginx/sites/default.conf
 
