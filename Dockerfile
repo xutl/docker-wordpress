@@ -16,10 +16,9 @@ RUN set -xe \
 	&& rm -f wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz
 
 ADD run.sh /run.sh
-ADD nginx.conf /usr/local/etc/nginx/sites/blog.conf
+ADD nginx.conf /usr/local/etc/nginx/sites/default.conf
 
-RUN rm -f /usr/local/etc/nginx/sites/default.conf \
-	&& chown -R www-data:www-data /app \
+RUN chown -R www-data:www-data /app \
 	&& chmod 700 /run.sh
 
 VOLUME ["/app/wp-content/uploads"]
