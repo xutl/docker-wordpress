@@ -16,9 +16,7 @@ RUN set -xe \
 	&& rm -f wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz \
 	&& rm -rf /app/wp-content/plugins/akismet \
 	&& rm -f /app/wp-content/plugins/hello.php \
-	&& chown -R www-data:www-data /app \
-	\
-	&& apk del .build-deps
+	&& chown -R www-data:www-data /app
 
 ADD http.nginx /usr/local/etc/nginx/sites/wordpress.conf
 

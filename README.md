@@ -2,11 +2,11 @@
 
 ## Build Status
 
-[![Build Status](https://travis-ci.org/xutongle/docker-wordpress.svg?branch=master)](https://travis-ci.org/xutongle/docker-wordpress) 
+[![Build Status](https://travis-ci.org/xutl/docker-wordpress.svg?branch=master)](https://travis-ci.org/xutl/docker-wordpress) 
 
 ## 支持的标签和相应的 `Dockerfile` 链接
 
--	[`4.9.1`, `4.9`(*Dockerfile*)](https://github.com/xutongle/docker-wordpress/blob/master/Dockerfile)
+-	[`4.9.4`, `4.9`(*Dockerfile*)](https://github.com/xutl/docker-wordpress/blob/master/Dockerfile)
 
 ## Filesystem layout
 
