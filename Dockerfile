@@ -9,9 +9,6 @@ ENV WORDPRESS_VERSION=${WORDPRESS_VERSION:-4.9.1}
 ENV WORDPRESS_TGZ_URL=https://cn.wordpress.org/wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz
 
 RUN set -xe \
-	&& apk add --no-cache --virtual .build-deps \
-		unzip \
-	\
 	&& mkdir -p /app \
 	&& cd /root \
 	&& curl -fSL ${WORDPRESS_TGZ_URL} -o wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz \
