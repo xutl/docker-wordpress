@@ -6,8 +6,6 @@
 
 ## 支持的标签和相应的 `Dockerfile` 链接
 
-标签说明，以 `x.x.x-fpm-base` 方式命名的标签，为没有开9000端口的FPM版本。用来作为父镜像打包 `nginx` 版本。
-
 -	[`4.9.1`, `4.9`(*Dockerfile*)](https://github.com/xutongle/docker-wordpress/blob/master/Dockerfile)
 
 ## Filesystem layout

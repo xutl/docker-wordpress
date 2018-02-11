@@ -7,7 +7,7 @@ services:
 
 env:
 ##   4.9
-  - MAJOR_VERSION=4.9 VERSION=4.9.1
+  - MAJOR_VERSION=4.9 VERSION=4.9.4
 
 before_install:
   - export DOCKER_COMPOSE_VERSION=1.18.0

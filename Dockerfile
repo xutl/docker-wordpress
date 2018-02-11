@@ -5,7 +5,7 @@ LABEL maintainer="xutongle@gmail.com"
 ARG WORDPRESS_VERSION
 
 # Environment settings
-ENV WORDPRESS_VERSION=${WORDPRESS_VERSION:-4.9.1}
+ENV WORDPRESS_VERSION=${WORDPRESS_VERSION:-4.9.4}
 ENV WORDPRESS_TGZ_URL=https://cn.wordpress.org/wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz
 
 RUN set -xe \
