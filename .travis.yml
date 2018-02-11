@@ -1,0 +1,34 @@
+language: bash
+
+sudo: required
+
+services:
+  - docker
+
+env:
+##   4.9
+  - MAJOR_VERSION=4.9 VERSION=4.9.1
+
+before_install:
+  - export DOCKER_COMPOSE_VERSION=1.18.0
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+before_script:
+  - env | sort
+  - image="xutl/wordpress:${VERSION}"
+
+script:
+  - travis_retry docker build --build-arg WORDPRESS_VERSION=${VERSION} -t "$image" .
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login --username="${DOCKER_REGISTRY_USER}" --password="${DOCKER_REGISTRY_PASSWORD}";
+      docker push $image;
+      docker tag $image xutl/wordpress:${MAJOR_VERSION};
+      docker push xutl/wordpress:${MAJOR_VERSION};
+    fi
+
+# vim:set et ts=2 sw=2:
