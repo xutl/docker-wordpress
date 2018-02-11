@@ -16,9 +16,9 @@ RUN set -xe \
 	&& rm -f wordpress-${WORDPRESS_VERSION}-zh_CN.tar.gz \
 	&& rm -rf /app/wp-content/plugins/akismet \
 	&& rm -f /app/wp-content/plugins/hello.php \
-	&& chown -R www-data:www-data /app
-
-ADD http.nginx /usr/local/etc/nginx/sites/wordpress.conf
+	&& chown -R www-data:www-data /app \
+	&& rm -rf /usr/local/html \
+	&& ln -s /app /usr/local/html
 
 VOLUME ["/app/wp-content/uploads"]
 
